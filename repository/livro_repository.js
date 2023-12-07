@@ -79,12 +79,6 @@ async function deletar(id) {
   return produtoDeletado;
 }
 
-
-
-
-
-
-
 module.exports = {
   listar,
   inserir,
