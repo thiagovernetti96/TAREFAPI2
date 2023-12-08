@@ -46,14 +46,14 @@ async function pesquisarPorNome(nome){
 async function atualizar(id, livroAtualizado) {
     const livro = await livroRepository.buscarPorId(id);
     if(!livro) {
-        throw {id: 404, message: "Livro nao encontrado"};
+        throw {id: 404, message: "Livro não encontrado"};
     }
     
     if(livroAtualizado && livroAtualizado.nome && livroAtualizado.editora && livroAtualizado.autor && livroAtualizado.ano){
         return await livroRepository.atualizar(id, livroAtualizado);
     }
     else {
-        throw {id: 400, message: "Livro nao possui um dos campos obrigatorios"};
+        throw {id: 400, message: "Livro não possui um dos campos obrigatorios"};
     }
 }
 
@@ -63,7 +63,7 @@ async function deletar(id) {
         return livroDeletado;
     }
     else {
-        throw {id: 404, message: "Livro nao encontrado"};
+        throw {id: 404, message: "Livro não encontrado"};
     }
 }
 
