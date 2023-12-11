@@ -58,7 +58,7 @@ describe('Testes do Controller', () => {
       nome: 'Livro Inválido',
     };
 
-    const erroMock = { id: 400, message: 'Livro não possui nome ou preco' };
+    const erroMock = { id: 400, message: 'Livro não possui um dos campos ' };
     const mockResponse = { status: jest.fn(), json: jest.fn() };
     mockResponse.status.mockReturnValue(mockResponse);
 

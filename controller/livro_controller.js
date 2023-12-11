@@ -81,20 +81,6 @@ async function deletar(req, res) {
   }   
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 module.exports = {
   listar,
   inserir,

@@ -9,7 +9,7 @@ async function inserir(cliente) {
       return await clienteRepository.inserir(cliente);
     }
     else {
-      throw {id:400, message:"cliente nao possui nome ou preco"};
+      throw {id:400, message:"cliente não possui um dos campos"};
     }
 }
 

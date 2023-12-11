@@ -9,7 +9,7 @@ async function inserir(livro) {
       return await livroRepository.inserir(livro);
     }
     else {
-        throw {id:400, message:"Livro nao possui nome ou preco"};
+        throw {id:400, message:"Livro nao possui um dos campos"};
     }
 }
 
