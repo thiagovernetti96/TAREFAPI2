@@ -24,7 +24,7 @@ async function inserir(cliente){
   const client = new Client(conexao);
   await client.connect();
   const insercao = await client.query("Insert into clientes(nome,matricula,telefone)" +
-  "Values ($1,$2,$3) RETURNING*",[cliente.nome,cliente.autor,cliente.editora,cliente.ano])
+  "Values ($1,$2,$3) RETURNING*",[cliente.nome,cliente.matricula,cliente.telefone])
   const clienteInserido = insercao.rows[0];
   await client.end();
   return clienteInserido;

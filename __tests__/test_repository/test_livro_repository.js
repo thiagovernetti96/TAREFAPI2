@@ -94,7 +94,7 @@ describe('Testes do Repositório', () => {
     // Defina os novos dados para o livro
     const novosDados = { nome: 'Livro Atualizado', autor: 'Novo Autor', editora: 'Nova Editora', ano: 2023 };
 
-    // Chame a função atualizar para atualizar o livro
+    // Chamando a função atualizar para atualizar o livro
     const livroAtualizado = await atualizar(livroInserido.id, novosDados);
 
     // Faça as asserções
@@ -105,7 +105,7 @@ describe('Testes do Repositório', () => {
     expect(livroAtualizado.editora).toBe(novosDados.editora);
     expect(livroAtualizado.ano).toBe(novosDados.ano);
 
-    // Verifique se o livro foi realmente atualizado (buscando pelo ID e verificando os novos dados)
+    // Verificando se o livro foi realmente atualizado (buscando pelo ID e verificando os novos dados)
     const livroAtualizadoNovamente = await buscarPorId(livroInserido.id);
     expect(livroAtualizadoNovamente).toBeDefined();
     expect(livroAtualizadoNovamente.nome).toBe(novosDados.nome);
@@ -120,13 +120,13 @@ describe('Testes do Repositório', () => {
     const livroParaDeletar = { nome: 'Livro para Deletar', autor: 'Autor', editora: 'Editora', ano: 2022 };
     const livroInserido = await inserir(livroParaDeletar);
 
-    // Chame a função deletar para deletar o livro
+    // Chamando a função deletar para deletar o livro
     const livroDeletado = await deletar(livroInserido.id);
 
     // Faça as asserções
     expect(livroDeletado).toBeDefined();
     expect(livroDeletado.id).toBe(livroInserido.id);
-    // Verifique se o livro foi realmente removido (buscando pelo ID e esperando que retorne undefined)
+    // Verificando  se o livro foi realmente removido (buscando pelo ID e esperando que retorne undefined)
     const livroBuscado = await buscarPorId(livroInserido.id);
     expect(livroBuscado).toBeUndefined();
   });
