@@ -33,22 +33,21 @@ async function buscarPorId(req, res) {
 
 
 async function pesquisarPorEditora(req, res) {
-  const editora = +req.params.editora;
+  const editora = req.params.editora;
+
   try {
-    const prod = await livroService.pesquisarPorEditora(editora);
-    res.json(prod);
-  }
-  catch(err) {
-    //id-> 404 / msg -> msg de erro
-    res.status(err.id).json({msg: err.message});
+    const livros = await livroService.pesquisarPorEditora(editora);
+    res.json(livros);
+  } catch (err) {
+    res.status(err.id).json({ msg: err.message });
   }
 }
 
 async function pesquisarPorNome(req, res) {
-  const nome = +req.params.nome;
+  const nome = req.params.nome;
   try {
-    const prod = await livroService.pesquisarPorNome(nome);
-    res.json(prod);
+    const livro = await livroService.pesquisarPorNome(nome);
+    res.json(livro);
   }
   catch(err) {
     //id-> 404 / msg -> msg de erro
@@ -72,12 +71,11 @@ async function atualizar (req, res) {
 
 async function deletar(req, res) {
   const id = +req.params.id;
-  try{ 
-    const livroDeletado = await livroService.deletar(id);
-    res.json(livroDeletado);
-  }
-  catch(err) {
-    res.status(err.id).json({msg: err.message});
+  try { 
+    await livroService.deletar(id);
+    res.status(204).end();
+  } catch (err) {
+    res.status(err.id).json({ msg: err.message });
   }   
 }
 
